@@ -103,6 +103,10 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
   report.success = false;
   report.num_trials = 0;
 
+  //print Estimator::kMinNumSamples and num_samples
+  std::cout << "---> Alex - Log - Estimator::kMinNumSamples = " << Estimator::kMinNumSamples << '\n';
+  std::cout << "---> Alex - Log - num_samples = " << num_samples << '\n';
+
   if (num_samples < Estimator::kMinNumSamples) {
     return report;
   }
