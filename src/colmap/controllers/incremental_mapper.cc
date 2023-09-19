@@ -44,6 +44,7 @@ size_t TriangulateImage(const IncrementalMapperOptions& options,
   printf("Alex - In Controllers..");
   const size_t num_tris =
       mapper->TriangulateImage(options.Triangulation(), image.ImageId());
+  exit(0);
   std::cout << "  => Added observations: " << num_tris << std::endl;
   return num_tris;
 }
