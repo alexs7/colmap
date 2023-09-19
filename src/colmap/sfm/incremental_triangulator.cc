@@ -110,6 +110,7 @@ size_t IncrementalTriangulator::TriangulateImage(const Options& options,
     ref_corr_data.point2D = &point2D;
 
     if (num_triangulated == 0) {
+      std::cout << " -- (inc. triang. loop) -> Alex - Log - point2D_idx = " << point2D_idx << '\n';
       corrs_data.push_back(ref_corr_data);
       num_tris += Create(options, corrs_data);
     } else {
