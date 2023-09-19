@@ -164,6 +164,9 @@ bool EstimateTriangulation(
   ransac.local_estimator.SetMinTriAngle(options.min_tri_angle);
   ransac.local_estimator.SetResidualType(options.residual_type);
   printf("Alex - Triangulator before ransac.Estimate()...\n");
+  //print point size and pose size
+  std::cout << "---> Alex - Log - point_data.size() = " << point_data.size() << '\n';
+  std::cout << "---> Alex - Log - pose_data.size() = " << pose_data.size() << '\n';
   const auto report = ransac.Estimate(point_data, pose_data);
   if (!report.success) {
     return false;
