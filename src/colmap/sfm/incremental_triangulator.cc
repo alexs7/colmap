@@ -489,6 +489,8 @@ size_t IncrementalTriangulator::Create(
   }
 
   // Setup data for triangulation estimation.
+  //print corrs_data size
+  std::cout << " -> Alex - Log - corrs_data.size() = " << corrs_data.size() << '\n';
   std::vector<TriangulationEstimator::PointData> point_data;
   point_data.resize(create_corrs_data.size());
   std::vector<TriangulationEstimator::PoseData> pose_data;
