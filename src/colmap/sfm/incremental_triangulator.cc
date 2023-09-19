@@ -524,6 +524,10 @@ size_t IncrementalTriangulator::Create(
   Eigen::Vector3d xyz;
   std::vector<char> inlier_mask;
   printf("Alex - Log - in Create() running: EstimateTriangulation() \n");
+  //print point size
+  std::cout << "-> Alex - Log - point_data.size() (Before RANSAC) = " << point_data.size() << '\n';
+  //print pose size
+  std::cout << "-> Alex - Log - pose_data.size() (Before RANSAC) = " << pose_data.size() << '\n';
   if (!EstimateTriangulation(
           tri_options, point_data, pose_data, &inlier_mask, &xyz)) {
     return 0;
