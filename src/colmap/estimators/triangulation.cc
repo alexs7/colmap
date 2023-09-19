@@ -58,9 +58,17 @@ std::vector<TriangulationEstimator::M_t> TriangulationEstimator::Estimate(
   CHECK_GE(point_data.size(), 2);
   CHECK_EQ(point_data.size(), pose_data.size());
 
+  printf("Alex - Log - TriangulationEstimator::Estimate\n");
+
+  //print point size
+  printf(" -> Alex - Log - point_data.size() = %d\n", point_data.size());
+  //print pose size
+  printf(" -> Alex - Log - pose_data.size() = %d\n", pose_data.size());
+
   if (point_data.size() == 2) {
     // Two-view triangulation.
-
+    //print using two-view triangulation
+    printf(" -> Alex - Log - using two-view triangulation\n");
     const M_t xyz = TriangulatePoint(pose_data[0].proj_matrix,
                                      pose_data[1].proj_matrix,
                                      point_data[0].point_normalized,
@@ -75,7 +83,8 @@ std::vector<TriangulationEstimator::M_t> TriangulationEstimator::Estimate(
     }
   } else {
     // Multi-view triangulation.
-
+    //print using multi-view triangulation
+    printf(" -> Alex - Log - using multi-view triangulation\n");
     std::vector<Eigen::Matrix3x4d> proj_matrices;
     proj_matrices.reserve(point_data.size());
     std::vector<Eigen::Vector2d> points;
