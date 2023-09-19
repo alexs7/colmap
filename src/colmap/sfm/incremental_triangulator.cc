@@ -88,6 +88,8 @@ size_t IncrementalTriangulator::TriangulateImage(const Options& options,
   std::vector<CorrData> corrs_data;
 
   // Try to triangulate all image observations.
+  //print image.NumPoints2D();
+  std::cout << " (inc. triang.) -> Alex - Log - image.NumPoints2D() = " << image.NumPoints2D() << '\n';
   for (point2D_t point2D_idx = 0; point2D_idx < image.NumPoints2D();
        ++point2D_idx) {
     const size_t num_triangulated =
@@ -99,6 +101,9 @@ size_t IncrementalTriangulator::TriangulateImage(const Options& options,
     if (corrs_data.empty()) {
       continue;
     }
+
+    //print num_triangulated
+    std::cout << " (inc. triang. loop) -> Alex - Log - num_triangulated = " << num_triangulated << '\n';
 
     const Point2D& point2D = image.Point2D(point2D_idx);
     ref_corr_data.point2D_idx = point2D_idx;
