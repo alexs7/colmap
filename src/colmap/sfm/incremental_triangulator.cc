@@ -116,6 +116,9 @@ size_t IncrementalTriangulator::TriangulateImage(const Options& options,
     }
   }
 
+  //print num_tris
+  std::cout << " -> Alex - Log - num_tris = " << num_tris << '\n';
+
   return num_tris;
 }
 

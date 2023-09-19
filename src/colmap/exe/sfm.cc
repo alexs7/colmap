@@ -477,6 +477,11 @@ int RunPointTriangulatorImpl(
     printf("Alex - In SfM..");
     mapper.TriangulateImage(tri_options, image_id);
 
+    //print image.NumPoints3D() 
+    printf("Alex - Log - image.NumPoints3D() = %d\n", image.NumPoints3D());
+    //print num_existing_points3D
+    printf("Alex - Log - num_existing_points3D = %d\n", num_existing_points3D);
+
     std::cout << "  => Triangulated "
               << (image.NumPoints3D() - num_existing_points3D) << " points"
               << std::endl;
