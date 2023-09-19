@@ -103,7 +103,7 @@ size_t IncrementalTriangulator::TriangulateImage(const Options& options,
     }
 
     //print corrs_data
-    std::cout << " -- before push back -- (inc. triang. loop) -> Alex - Log - corrs_data = " << corrs_data << '\n';
+    std::cout << " -- before push back -- (inc. triang. loop) -> Alex - Log - corrs_data size() = " << corrs_data.size() << '\n';
 
     //print num_triangulated
     std::cout << " (inc. triang. loop) -> Alex - Log - num_triangulated = " << num_triangulated << '\n';
