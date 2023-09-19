@@ -167,6 +167,11 @@ bool EstimateTriangulation(
   //print point size and pose size
   std::cout << "---> Alex - Log - point_data.size() = " << point_data.size() << '\n';
   std::cout << "---> Alex - Log - pose_data.size() = " << pose_data.size() << '\n';
+  // print point_data
+  for (size_t i = 0; i < point_data.size(); ++i) {
+    std::cout << "---> Alex - Log - point_data[" << i << "].point X = " << point_data[i].point.x << '\n';
+    std::cout << "---> Alex - Log - point_data[" << i << "].point Y = " << point_data[i].point.y << '\n';
+  }
   const auto report = ransac.Estimate(point_data, pose_data);
   if (!report.success) {
     return false;
