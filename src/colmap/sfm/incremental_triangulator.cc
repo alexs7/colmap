@@ -211,6 +211,7 @@ size_t IncrementalTriangulator::CompleteImage(const Options& options,
     // Estimate triangulation.
     Eigen::Vector3d xyz;
     std::vector<char> inlier_mask;
+    printf("Alex - Log - in CompleteImage() running: EstimateTriangulation() \n");
     if (!EstimateTriangulation(
             tri_options, point_data, pose_data, &inlier_mask, &xyz)) {
       continue;
@@ -522,6 +523,7 @@ size_t IncrementalTriangulator::Create(
   // Estimate triangulation.
   Eigen::Vector3d xyz;
   std::vector<char> inlier_mask;
+  printf("Alex - Log - in Create() running: EstimateTriangulation() \n");
   if (!EstimateTriangulation(
           tri_options, point_data, pose_data, &inlier_mask, &xyz)) {
     return 0;
