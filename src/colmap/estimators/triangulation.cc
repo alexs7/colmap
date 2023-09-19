@@ -61,9 +61,9 @@ std::vector<TriangulationEstimator::M_t> TriangulationEstimator::Estimate(
   printf("Alex - Log - TriangulationEstimator::Estimate\n");
 
   //print point size
-  printf(" -> Alex - Log - point_data.size() = %d\n", point_data.size());
+  std::cout << "-> Alex - Log - point_data.size() = " << point_data.size() << '\n';
   //print pose size
-  printf(" -> Alex - Log - pose_data.size() = %d\n", pose_data.size());
+  std::cout << "-> Alex - Log - pose_data.size() = " << pose_data.size() << '\n';
 
   if (point_data.size() == 2) {
     // Two-view triangulation.
