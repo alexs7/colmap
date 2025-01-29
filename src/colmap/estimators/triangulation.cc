@@ -60,7 +60,7 @@ std::vector<TriangulationEstimator::M_t> TriangulationEstimator::Estimate(
 
   if (point_data.size() == 2) {
     // Two-view triangulation.
-
+    std::cout << "Doing two view" << std::endl;
     const M_t xyz = TriangulatePoint(pose_data[0].proj_matrix,
                                      pose_data[1].proj_matrix,
                                      point_data[0].point_normalized,
@@ -75,7 +75,7 @@ std::vector<TriangulationEstimator::M_t> TriangulationEstimator::Estimate(
     }
   } else {
     // Multi-view triangulation.
-
+    std::cout << "Doing multi view triangulation" << " point_data.size() " << point_data.size() << std::endl;
     std::vector<Eigen::Matrix3x4d> proj_matrices;
     proj_matrices.reserve(point_data.size());
     std::vector<Eigen::Vector2d> points;

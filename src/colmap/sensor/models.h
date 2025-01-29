@@ -674,6 +674,7 @@ void PinholeCameraModel::ImgFromCam(
 template <typename T>
 void PinholeCameraModel::CamFromImg(
     const T* params, const T x, const T y, T* u, T* v, T* w) {
+  std::cout << "Alex normalising camera points" << std::endl;
   const T f1 = params[0];
   const T f2 = params[1];
   const T c1 = params[2];

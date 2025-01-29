@@ -392,6 +392,8 @@ int RunTransitiveMatcher(int argc, char** argv) {
 }
 
 int RunVocabTreeMatcher(int argc, char** argv) {
+
+  std::cout << "Alex - Matching" << std::endl;
   OptionManager options;
   options.AddDatabaseOptions();
   options.AddVocabTreeMatchingOptions();

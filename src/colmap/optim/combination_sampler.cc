@@ -53,6 +53,8 @@ size_t CombinationSampler::MaxNumSamples() {
 }
 
 void CombinationSampler::Sample(std::vector<size_t>* sampled_idxs) {
+  //prtin calling c sampler
+  std::cout << "calling c sampler" << std::endl;
   sampled_idxs->resize(num_samples_);
   for (size_t i = 0; i < num_samples_; ++i) {
     (*sampled_idxs)[i] = total_sample_idxs_[i];

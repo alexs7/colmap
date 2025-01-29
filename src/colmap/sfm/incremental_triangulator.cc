@@ -191,6 +191,8 @@ size_t IncrementalTriangulator::CompleteImage(const Options& options,
     point_data.resize(corrs_data.size());
     std::vector<TriangulationEstimator::PoseData> pose_data;
     pose_data.resize(corrs_data.size());
+    std::cout << "corrs_data.size() " << corrs_data.size() << " point_data.size() " << point_data.size() << " pose_data.size() " << pose_data.size() << std::endl;
+
     for (size_t i = 0; i < corrs_data.size(); ++i) {
       const CorrData& corr_data = corrs_data[i];
       point_data[i].point = corr_data.point2D->xy;
@@ -207,6 +209,9 @@ size_t IncrementalTriangulator::CompleteImage(const Options& options,
       tri_options.ransac_options.min_num_trials =
           NChooseK(point_data.size(), 2);
     }
+
+    //print tri_options.ransac_options.min_num_trials
+    std::cout << "tri_options.ransac_options.min_num_trials " << tri_options.ransac_options.min_num_trials << std::endl;
 
     // Estimate triangulation.
     Eigen::Vector3d xyz;

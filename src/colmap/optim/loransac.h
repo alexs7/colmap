@@ -97,7 +97,12 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
     const std::vector<typename Estimator::Y_t>& Y) {
   CHECK_EQ(X.size(), Y.size());
 
+  std::cout << "X size: " << X.size() << std::endl;
+  std::cout << "Y size: " << Y.size() << std::endl;
+
   const size_t num_samples = X.size();
+
+  std::cout << "num_samples: " << num_samples << std::endl;
 
   typename RANSAC<Estimator, SupportMeasurer, Sampler>::Report report;
   report.success = false;
@@ -131,6 +136,7 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
   size_t dyn_max_num_trials = max_num_trials;
   const size_t min_num_trials = options_.min_num_trials;
 
+  std::cout << "max_num_trials: " << max_num_trials << std::endl;
   for (report.num_trials = 0; report.num_trials < max_num_trials;
        ++report.num_trials) {
     if (abort) {
@@ -140,7 +146,11 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
 
     sampler.SampleXY(X, Y, &X_rand, &Y_rand);
 
+    //print random sample size
+    std::cout << "  X_rand size: " << X_rand.size() << " Y_rand size: " << Y_rand.size() << std::endl;
+
     // Estimate model for current subset.
+    std::cout << "  Estimating model" << std::endl;
     const std::vector<typename Estimator::M_t> sample_models =
         estimator.Estimate(X_rand, Y_rand);
 
@@ -175,7 +185,9 @@ LORANSAC<Estimator, LocalEstimator, SupportMeasurer, Sampler>::Estimate(
                 Y_inlier.push_back(Y[i]);
               }
             }
-
+            
+            //print local opt and X_inlier / Y sizes
+            std::cout << "    Local opt. X_inlier size: " << X_inlier.size() << " Y_inlier size: " << Y_inlier.size() << std::endl;
             const std::vector<typename LocalEstimator::M_t> local_models =
                 local_estimator.Estimate(X_inlier, Y_inlier);
 
